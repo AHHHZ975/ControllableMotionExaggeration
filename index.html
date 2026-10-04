@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Controllable Exaggeration for Generative Motion Models</title>
+  <meta name="description" content="Training-time adaptation and inference-time guidance for controllable, expressive character motion generation.">
+  <meta name="theme-color" content="#172033">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23172033'/%3E%3Cpath d='M18 47c6-5 9-11 12-19 2 8 8 13 16 18M30 28l6-12M30 28l-11-5M30 28l12 1' fill='none' stroke='%236ea4ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='36' cy='12' r='5' fill='%23ff9f43'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="project-nav" aria-label="Project sections">
+    <a class="project-mark" href="#top" aria-label="Back to top"><span></span>Expressive Motion</a>
+    <div class="nav-links">
+      <a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#evaluation">Evaluation</a><a href="#bibtex">BibTeX</a>
+    </div>
+  </nav>
+
+  <header id="top" class="hero publication-header">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        <div class="institution-row" aria-label="Affiliations">
+          <img src="static/images/Autodesk_Logo.jpg" alt="Autodesk Research">
+          <span class="institution-rule"></span>
+          <img src="static/images/Mila_Logo.png" alt="Mila - Quebec AI Institute">
+          <img src="static/images/Concordia_Logo.png" alt="Concordia University">
+        </div>
+        <p class="eyebrow">ICLR 2027 Submission</p>
+        <h1 class="title publication-title">Controllable Exaggeration for Generative Motion Models via Training-Time Adaptation and Inference-Time Guidance</h1>
+        <div class="publication-authors">
+          <span class="author-block"><a href="https://ahhhz975.github.io/" target="_blank" rel="noopener">Amirhossein Zamani</a><sup>1,2,3*</sup></span>
+          <span class="author-block">Arianna Rampini<sup>1</sup></span>
+          <span class="author-block"><a href="https://bruno-roy.com" target="_blank" rel="noopener">Bruno Roy</a><sup>1</sup></span>
+        </div>
+        <p class="affiliations"><sup>1</sup>Autodesk Research &nbsp; <sup>2</sup>Mila – Quebec AI Institute &nbsp; <sup>3</sup>Concordia University</p>
+        <p class="corresponding"><sup>*</sup>Corresponding author</p>
+        <div class="publication-links">
+          <span class="button is-dark is-static" title="The paper will be linked after its public release"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper · Coming Soon</span></span>
+          <a class="button is-dark" href="https://github.com/AHHHZ975/expressive-motion-synthesis" target="_blank" rel="noopener"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a>
+          <a class="button is-dark" href="#video"><span class="icon"><i class="fas fa-play"></i></span><span>Video</span></a>
+          <a class="button is-dark" href="#bibtex"><span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section teaser-section">
+      <div class="container is-max-desktop">
+        <figure class="paper-figure hero-figure">
+          <img src="static/images/teaser.png" alt="A neutral dance motion and progressively exaggerated outputs at k equals 3, 6, and 10">
+          <figcaption>Our approach produces controllable and plausible motion exaggerations from a neutral reference. Increasing <em>k</em> progressively amplifies the dance while preserving its underlying action intent.</figcaption>
+        </figure>
+        <div class="takeaway-grid" aria-label="Design goals">
+          <article><span class="takeaway-number">01</span><h2>Controllable</h2><p>A single intensity control moves smoothly from neutral to increasingly exaggerated motion.</p></article>
+          <article><span class="takeaway-number">02</span><h2>Intent-preserving</h2><p>Exaggeration changes how an action is performed without changing what the action is.</p></article>
+          <article><span class="takeaway-number">03</span><h2>Physically plausible</h2><p>The motion model's learned prior regularizes extreme targets and reduces visible artifacts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="video" class="section section-dark">
+      <div class="container is-max-desktop">
+        <div class="section-heading on-dark"><p class="section-kicker">See the motion, not just the frames</p><h2>Supplemental Video</h2></div>
+        <div class="video-shell youtube-player" data-youtube-id="YOUR_YOUTUBE_VIDEO_ID">
+          <!-- Replace YOUR_YOUTUBE_VIDEO_ID above with the ID from the uploaded YouTube URL. -->
+          <iframe title="Supplemental video for Controllable Exaggeration for Generative Motion Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe>
+          <div class="youtube-placeholder" role="status">
+            <img src="static/images/teaser.png" alt="">
+            <div class="youtube-placeholder-overlay">
+              <span class="youtube-play"><i class="fab fa-youtube"></i></span>
+              <strong>Supplemental video coming soon</strong>
+              <span>Upload the video to YouTube, then replace the video ID in <code>index.html</code>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="abstract" class="section">
+      <div class="container is-max-desktop">
+        <div class="section-heading"><p class="section-kicker">Beyond physical realism</p><h2>Abstract</h2></div>
+        <div class="content abstract-copy">
+          <p>Recent motion generative models synthesize physically plausible character motion, but often overlook the animation principles that professionals use to make characters feel alive, expressive, and engaging. We focus on <em>exaggeration</em> and study how to incorporate it into modern text-to-motion pipelines.</p>
+          <p>We introduce a two-stage framework. At training time, we fine-tune pre-trained motion models on a curated, graded exaggeration dataset. At inference time, we formulate exaggeration with dynamic movement primitives (DMPs) and use that formulation to guide diffusion and flow-matching models—without additional training. Across MDM, KIMODO, and HY-Motion, our methods increase expressiveness while preserving the neutral motion's intent and physical plausibility.</p>
+        </div>
+        <aside class="research-question">How can a generative motion model amplify expression while keeping the action recognizable and the character believable?</aside>
+      </div>
+    </section>
+
+    <section id="method" class="section section-soft">
+      <div class="container is-max-desktop">
+        <div class="section-heading"><p class="section-kicker">Two complementary paths</p><h2>Methodology</h2></div>
+        <figure class="paper-figure">
+          <img src="static/images/methodology.png" alt="Overview of the training-time and inference-time motion exaggeration framework" loading="lazy">
+          <figcaption>The framework learns exaggeration as a text-controlled attribute during fine-tuning, or introduces it at inference time through a DMP target and guided sampling.</figcaption>
+        </figure>
+
+        <div class="method-grid">
+          <article class="method-card training">
+            <div class="method-label">Training-time</div>
+            <h3>Learn exaggeration as a native attribute</h3>
+            <p><strong>ExMoCap</strong> contains 26 actions, each performed at five intensity levels from neutral to extremely exaggerated. We retarget and augment these performances, then fine-tune motion generators with LoRA and prior preservation.</p>
+            <ol><li>Capture graded performances.</li><li>Retarget to each model's native representation.</li><li>Fine-tune with text-conditioned intensity labels.</li></ol>
+          </article>
+          <article class="method-card inference">
+            <div class="method-label">Inference-time</div>
+            <h3>Guide a frozen model with DMPs</h3>
+            <p>Per-interval DMPs decompose motion between key poses. Scaling the forcing term amplifies the expressive trajectory shape while preserving interval boundaries. Guided sampling then pulls a frozen generator toward that target.</p>
+            <ol><li>Generate a neutral reference.</li><li>Build a DMP-exaggerated target.</li><li>Guide denoising while retaining the learned motion prior.</li></ol>
+          </article>
+        </div>
+        <div class="compatibility-strip"><strong>One framework, three backbones:</strong><span>MDM</span><span>KIMODO</span><span>HY-Motion</span><span>Diffusion + flow matching</span></div>
+      </div>
+    </section>
+
+    <section id="results" class="section">
+      <div class="container is-max-desktop">
+        <div class="section-heading"><p class="section-kicker">Qualitative comparisons</p><h2>More expression, same action</h2><p>Across three motion generators, our method increases pose amplitude and characteristic movement while retaining the original action and temporal progression.</p></div>
+        <figure class="paper-figure featured-result">
+          <img src="static/images/qualitative-comparison.png" alt="Baseline and exaggerated motions for MDM, KIMODO, and HY-Motion" loading="lazy">
+          <figcaption>Top: motions from the pre-trained baselines. Bottom: our exaggerated results for kick, dance, and push.</figcaption>
+        </figure>
+
+        <div class="result-tabs" role="tablist" aria-label="Detailed qualitative results">
+          <button class="result-tab is-active" role="tab" aria-selected="true" aria-controls="result-sft" data-result="result-sft">Text-controlled SFT</button>
+          <button class="result-tab" role="tab" aria-selected="false" aria-controls="result-tf" data-result="result-tf">Training-free guidance</button>
+          <button class="result-tab" role="tab" aria-selected="false" aria-controls="result-combined" data-result="result-combined">Across backbones</button>
+        </div>
+        <div class="result-panels">
+          <figure id="result-sft" class="result-panel is-active" role="tabpanel"><img src="static/images/controllable-sft.jpg" alt="Kick motions with progressively increasing text-conditioned exaggeration" loading="lazy"><figcaption>Supervised fine-tuning makes exaggeration directly controllable through the text prompt.</figcaption></figure>
+          <figure id="result-tf" class="result-panel" role="tabpanel" hidden><img src="static/images/controllable-tf.jpg" alt="Dance motions with progressively increasing DMP exaggeration scale" loading="lazy"><figcaption>Training-free guidance increases expression through the continuous scale <em>k</em>.</figcaption></figure>
+          <figure id="result-combined" class="result-panel" role="tabpanel" hidden><img src="static/images/mdm-hymotion.jpg" alt="Additional qualitative results for MDM and HY-Motion" loading="lazy"><figcaption>The same framework transfers across diffusion and flow-matching backbones.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluation" class="section section-soft">
+      <div class="container is-max-desktop">
+        <div class="section-heading"><p class="section-kicker">Evaluation suite</p><h2>Measuring both exaggeration and preservation</h2><p>A useful expressive-motion system must amplify movement without losing action identity or physical quality. We evaluate both sides of that trade-off.</p></div>
+        <div class="metric-grid">
+          <article><span class="metric-icon"><i class="fas fa-chart-line"></i></span><h3>Exaggeration control</h3><p>Classifier-based level accuracy and rank correlation test whether outputs follow the requested progression.</p></article>
+          <article><span class="metric-icon"><i class="fas fa-person-running"></i></span><h3>Physical intensity</h3><p>Root-relative range of motion measures the consistency and magnitude of physical amplification.</p></article>
+          <article><span class="metric-icon"><i class="fas fa-bullseye"></i></span><h3>Action preservation</h3><p>R-precision, MMDist, FID, diversity, and foot skate assess text alignment, manifold fidelity, and quality.</p></article>
+        </div>
+
+        <div class="numbers-row" aria-label="User study summary">
+          <div><strong>81.8%</strong><span>highest requested level identified as most exaggerated</span></div>
+          <div><strong>76.7%</strong><span>positive action-preservation ratings overall</span></div>
+          <div><strong>20</strong><span>participants across 320 perceptual evaluations</span></div>
+        </div>
+
+        <div class="evaluation-grid">
+          <figure class="paper-figure compact"><img src="static/images/ablation-classifier.png" alt="Classifier-based ablation on LoRA rank and prior-preservation weight" loading="lazy"><figcaption>Increasing LoRA capacity strengthens exaggeration control, while prior preservation protects prompt adherence.</figcaption></figure>
+          <figure class="paper-figure compact"><img src="static/images/ablation-physical.png" alt="Classifier-free physical intensity ablation" loading="lazy"><figcaption>The selected operating points balance physical amplification with text-motion alignment.</figcaption></figure>
+        </div>
+
+        <div class="tradeoff-card">
+          <h3>The central trade-off</h3>
+          <p><strong>SFT</strong> provides the strongest direct control over requested exaggeration levels. <strong>Training-free guidance</strong> recovers plausibility compared with unconstrained DMP amplification. <strong>SFT + TF</strong> yields the strongest physical exaggeration, with a larger departure from the neutral action.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="section-heading"><p class="section-kicker">Perceptual study</p><h2>What viewers were asked to judge</h2></div>
+        <figure class="paper-figure"><img src="static/images/user-study.jpg" alt="Representative controllable exaggeration and action preservation questions from the user study" loading="lazy"><figcaption>Participants identified the most exaggerated and most neutral motions, then rated whether exaggerated outputs preserved the source action.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section section-dark conclusions">
+      <div class="container is-max-desktop">
+        <div class="section-heading on-dark"><p class="section-kicker">Conclusion</p><h2>Animation principles as generative controls</h2></div>
+        <p>Our results show that exaggeration can be learned as a controllable attribute or injected through inference-time guidance. More broadly, they point toward motion foundation models that understand not only how people move, but how animators design movement for clarity, appeal, and expression.</p>
+      </div>
+    </section>
+
+    <section id="bibtex" class="section">
+      <div class="container is-max-desktop">
+        <div class="bibtex-header"><div class="section-heading"><p class="section-kicker">Citation</p><h2>BibTeX</h2></div><button class="copy-bibtex-btn" type="button"><i class="far fa-copy"></i><span>Copy</span></button></div>
+        <pre><code id="bibtex-code">@inproceedings{zamani2027controllable,
+  title     = {Controllable Exaggeration for Generative Motion Models via Training-Time Adaptation and Inference-Time Guidance},
+  author    = {Zamani, Amirhossein and Rampini, Arianna and Roy, Bruno},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2027}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop has-text-centered">
+      <p><strong>Acknowledgements.</strong> This research was supported by Autodesk Research and the Autodesk AI Lab.</p>
+      <p class="footer-note">Built from the same academic project-page structure used for our <a href="https://ahhhz975.github.io/Automatic3DMeshParameterization/" target="_blank" rel="noopener">previous ICLR project</a>, itself based on the Academic Project Page Template and Nerfies.</p>
+    </div>
+  </footer>
+  <button class="scroll-to-top" type="button" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+</body>
+</html>
